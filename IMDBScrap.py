@@ -6,9 +6,9 @@ url="https://www.imdb.com/chart/top/" #Url we will connect
 r=requests.get(url)
 ### Connecting url with get method
 
-soup=BeautifulSoup(r.content,"html5lib")
+Soup=BeautifulSoup(r.content,"html5lib")
 ### Creating soup object for getting html elements
-List=soup.find("tbody",{"class":"lister-list"}).find_all("tr")
+List=Soup.find("tbody",{"class":"lister-list"}).find_all("tr")
 
 wb=openpyxl.Workbook()
 ###Created workbook object
@@ -17,10 +17,10 @@ sheet=wb.active
 
 Row=1
 ###Defined row variable for our loop
-for film in List:
-     Name=film.find("td",{"class":"titleColumn"}).a.text
-     Year=film.find("td",{"class":"titleColumn"}).span.text
-     Rating=film.find("td",{"class":"ratingColumn imdbRating"}).text.strip()
+for Movie in List:
+     Name=Movie.find("td",{"class":"titleColumn"}).a.text
+     Year=Movie.find("td",{"class":"titleColumn"}).span.text
+     Rating=Movie.find("td",{"class":"ratingColumn imdbRating"}).text.strip()
      ###Reached the html element of movie data
      FirstC=sheet.cell(column=1,row=Row)
      SecondC=sheet.cell(column=2,row=Row)
