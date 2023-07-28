@@ -30,7 +30,7 @@ for Movie in List:
      SecondC.value=Year
      ThirdC.value=Rating
      ###Assigned values to columns
-     Row+=1
+     Row++
 
 wb.save("ImdbTop250.xlsx")
 ###Saved & Created xlsx file
