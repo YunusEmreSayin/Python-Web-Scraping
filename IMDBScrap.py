@@ -3,10 +3,10 @@ import requests
 from bs4 import BeautifulSoup
 
 url="https://www.imdb.com/chart/top/" #Url we will connect
-r=requests.get(url)
+response=requests.get(url)
 ### Connecting url with get method
 
-Soup=BeautifulSoup(r.content,"html5lib")
+Soup=BeautifulSoup(response.content,"html5lib")
 ### Creating soup object for getting html elements
 List=Soup.find("tbody",{"class":"lister-list"}).find_all("tr")
 
