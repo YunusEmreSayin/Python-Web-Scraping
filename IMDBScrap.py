@@ -15,7 +15,7 @@ wb=openpyxl.Workbook()
 sheet=wb.active
 ###Created WorkSheet
 
-Row=1
+row=1
 ###Defined row variable for our loop
 for Movie in List:
      Name=Movie.find("td",{"class":"titleColumn"}).a.text
